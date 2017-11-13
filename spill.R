@@ -58,11 +58,11 @@ y=as.numeric(datF[datF$Rup=="Y",2][1,])
 
 p <- ggplot(datF)+
   geom_line(aes(x=stn,y=elevation))+
-  geom_point(aes(x=stn,y=elevation))+
   geom_line(data=datdown[1:datdown$rowno[datdown$elevation==max(datdown$elevation)],],
             aes(x=stn,y=max,color="red"))+
   geom_line(data=datup[1:datup$rowno[datup$elevation==max(datup$elevation)],],
             aes(x=stn,y=upslope1,color="red"))+
+  geom_point(aes(x=stn,y=elevation))+
   geom_point(aes(x=x,y=y,color="blue"))
 ggplotly(p)
 
