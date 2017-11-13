@@ -5,10 +5,10 @@ setwd("C:/Users/dgallen/Desktop/R Work")
 library(magrittr)
 library(tidyverse)
 library(plotly)
-dat <- as.tibble(read.csv("elevation_profile.csv"))
+dat <- as.tibble(read.csv(dir()[1]))
 
 
-Rupture <- 3600
+Rupture <- 3500
 
 dat %<>%
   
@@ -50,11 +50,6 @@ datdown <- datdown %>%
   mutate(upslope1 = ifelse(datdown$upslope[1:length(datdown$stn)]<
                              datdown$max[1:length(datdown$stn)],
                            NA,datdown$max[1:length(datdown$stn)]))
-
-
-
-
-
 
 datF <- arrange(rbind(datup,datdown),stn)
 
